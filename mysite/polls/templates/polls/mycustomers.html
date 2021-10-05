@@ -1,0 +1,28 @@
+{% load render_table from django_tables2 %}
+{% load bootstrap3 %}
+{% if customer_list %}
+<html>
+    <head>
+        <title>List of customers</title>
+    </head>
+
+    <body>
+<!--        {% render_table object_list %}-->
+    {% if filter %}
+        <form action="" method="get" class="form form-inline">
+            {% bootstrap_form filter.form layout='inline' %}
+            {% bootstrap_button 'filter' %}
+        </form>
+    {% endif %}
+    {% render_table table 'django_tables2/bootstrap.html' %}
+
+    </body>
+</html>
+<!--<ul>-->
+<!--    {% for customer in customer_list %}-->
+<!--    <li> {{ customer.name }} </li>-->
+<!--    {% endfor %}-->
+<!--</ul>-->
+<!--{% else %}-->
+<!--<p>No customers yet ;)</p>-->
+<!--{% endif %}-->
